@@ -13,7 +13,6 @@ import com.example.Bookstore.domain.BookRepository;
 
 @SpringBootApplication
 public class BookstoreApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(BookstoreApplication.class, args);
 	}
@@ -27,7 +26,6 @@ public class BookstoreApplication {
 	        	repository.save(b1);
 	        	repository.save(b2);
 	        	repository.save(b3);
-	        	
 
 	        };
 	       	}

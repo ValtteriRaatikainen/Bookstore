@@ -3,10 +3,11 @@
 <head>
     <title>Server Programming with Spring Boot</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
     <h1>Books</h1>
-   	<table>
+   	<table class="table table-striped">
    		<tbody>
    			<tr>
    			<td><b>Title</b></td>
@@ -21,9 +22,11 @@
    			<td th:text= "${book.year}"></td>
    			<td th:text= "${book.isbn}"></td>
    			<td th:text= "${book.price}"></td>
+   			<td><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
    			</tr>
    		</tbody>
    	</table>
+   	<a href="/add" class="btn btn-success">Add book</a>
 </body>
 </html>
  
