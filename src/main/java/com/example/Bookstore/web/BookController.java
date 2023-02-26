@@ -42,7 +42,7 @@ public class BookController {
 	public String saveBook(Book book) {
 		repository.save(book);
 		return "redirect:booklist";
-	} 
+	}
 	
 }
 
