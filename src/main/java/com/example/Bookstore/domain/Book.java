@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 public class Book {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
+	private Long id;
 	private String title;
 	private String author;
 	@Column(name="publishing_year")
@@ -32,7 +32,7 @@ public class Book {
 	public long getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getTitle() {
