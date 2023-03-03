@@ -25,7 +25,7 @@ public class CategoryController {
 		return "categorylist";
 	}
 
-	@RequestMapping(value = "/add-category")
+	@RequestMapping(value = "/addcategory")
 	public String addCategory(Model model) {
 		model.addAttribute("categorys", new Category());
 		return "addcategory";
@@ -37,7 +37,7 @@ public class CategoryController {
         return (List<Category>) repository.findAll();
     }  
     
-	@RequestMapping(value = "/save-category", method = RequestMethod.POST)
+	@RequestMapping(value = "/savecategory", method = RequestMethod.POST)
 	public String saveCategory(Category category) {
 		repository.save(category);
 		return "redirect:categorylist";
