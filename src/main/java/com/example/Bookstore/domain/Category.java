@@ -2,6 +2,9 @@ package com.example.Bookstore.domain;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,10 +20,14 @@ public class Category {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long categoryId;
 	private String name;
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
-    private List<Book> books;
 	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
+	// @JsonIgnoreProperties - one way to avoid infinite loop during JSON serialization/deserialization with bidirectional relationships
+	@JsonIgnore
+	@JsonIgnoreProperties ("jsoncategories") 
+    private List<Book> books;
 
+	
 	public Category(String name) {
 		super();
 		this.name = name;

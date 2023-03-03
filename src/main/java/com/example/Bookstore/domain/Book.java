@@ -1,5 +1,7 @@
 package com.example.Bookstore.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,10 +22,13 @@ public class Book {
 	private String isbn;
 	private Double price;
 	@ManyToOne
+	// @JsonIgnoreProperties - one way to avoid infinite loop during JSON serialization/deserialization with bidirectional relationships
+    @JsonIgnoreProperties ("jsonbooks") 
     @JoinColumn ( name = "categoryid")
     private Category category;
-	
 
+	public Book() {}
+	
 	public Book(String title, String author, int year, String isbn, Double price, Category category) {
 		super();
 		this.title = title;
@@ -34,7 +39,7 @@ public class Book {
 		this.category = category;
 	}
 	
-	public Book() {}
+
 	
 	public long getId() {
 		return id;
