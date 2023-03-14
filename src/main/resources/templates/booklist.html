@@ -19,7 +19,7 @@
    			<td><b>ISBN</b></td>
    			<td><b>Price</b></td>
    			<td><b>Category</b></td>
-   			<td sec:authorize="hasRole('ADMIN')"><b>Delete</b></td>
+   			<td sec:authorize="hasAuthority('ADMIN')"><b>Delete</b></td>
    			</tr>
    			<tr th:each = "book : ${books}">
    			<td th:text= "${book.title}"></td>
@@ -28,7 +28,7 @@
    			<td th:text= "${book.isbn}"></td>
    			<td th:text= "${book.price}"></td>
    			<td th:text= "${book.category.name}"></td>
-   			<td sec:authorize="hasRole('ADMIN')"><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
+   			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
    			</tr>
    		</tbody>
    	</table>
